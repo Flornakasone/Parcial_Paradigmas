@@ -26,12 +26,11 @@ def carga_datos(campos):
                     entrada_csv = csv.DictWriter(f, fieldnames=campos)
             if modif_archivo == "2":
                 with open(nombre_archivo, "w") as f:
-                    entrada_csv = csv.DictWriter(f, fieldnames=campos)
-            else: 
-                if not archivo_existe :
-                    entrada_csv.writeheader()
-                entrada_csv.writerows(legajo_empleados)
-                print("Guardando datos...")   
+                    entrada_csv = csv.DictWriter(f, fieldnames=campos) 
+            if not archivo_existe :
+                entrada_csv.writeheader()
+            entrada_csv.writerows(legajo_empleados)
+            print("Guardando datos...")   
               
     except IOError:
         print("Hubo un error, no se puede visualizar el archivo") 
